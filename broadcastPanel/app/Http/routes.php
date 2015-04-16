@@ -13,4 +13,4 @@
 
 Route::get('/account/login', 'AccountController@getLogin');
 
-Route::get('/dashboard/index', 'DashboardController@getIndex');
+Route::get('/dashboard/index', 'DashboardController@getIndex'); 

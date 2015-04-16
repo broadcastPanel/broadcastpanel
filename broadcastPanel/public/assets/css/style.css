@@ -1,0 +1,18 @@
+@charset 'utf-8';
+/**
+ * @author   Liam Symonds <liam@broadcastpanel.com>
+ * @version  1.0.0
+ * @modified 16/04/2015
+ *
+ * This file contains all of the import for the other parts of the application.
+ **/
+/**
+ * @author   Liam Symonds <liam@broadcastpanel.com>
+ * @version  1.0.0
+ * @modified 16/04/2015
+ *
+ * This stylesheet contains all of the base application colours.
+ * broadcastPanel has a specific colour range it uses in order
+ * to style certain components and having them in a grouped
+ * file makes it easier to change and modify them.
+ **/

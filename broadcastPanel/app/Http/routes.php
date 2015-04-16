@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/account/login', 'AccountController@getLogin');
-Route::post('/account/login', 'AccountController@postLogin');
+Route::get(  '/account/login',   'AccountController@getLogin' );
+Route::post( '/account/login',   'AccountController@postLogin' );
 
-Route::get('/dashboard/index', 'DashboardController@getIndex'); 
+Route::get(  '/dashboard/index', 'DashboardController@getIndex' ); 

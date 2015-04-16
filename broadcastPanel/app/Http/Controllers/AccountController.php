@@ -42,7 +42,7 @@ class AccountController extends Controller
 
             );
 
-            $user = Sentry::authenticate($credentials, false);        
+            $user = Sentry::authenticate( $credentials, false );        
         }
         catch ( \Cartalyst\Sentry\Users\LoginRequiredException $e )
         {

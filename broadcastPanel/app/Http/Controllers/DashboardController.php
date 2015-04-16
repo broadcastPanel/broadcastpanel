@@ -20,7 +20,7 @@ class DashboardController extends Controller
      **/
     public function __construct()
     {
-        $this->middleware('sentryauth');
+        $this->middleware( 'sentryauth' );
     }
 
     /**
@@ -31,7 +31,7 @@ class DashboardController extends Controller
      **/
     public function getIndex()
     {
-        return view('dashboard.index');
+        return view( 'dashboard.index' );
     }
 
 }

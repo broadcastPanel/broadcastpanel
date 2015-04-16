@@ -149,6 +149,7 @@ return [
                  * External Service Providers...
                  */
                 'Collective\Html\HtmlServiceProvider',
+                'Cartalyst\Sentry\SentryServiceProvider',
 	],
 
 	/*
@@ -198,7 +199,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
                 'Form'      => 'Collective\Html\FormFacade',
                 'Html'      => 'Collective\Html\HtmlFacade',
-
+                'Sentry'    => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 	],
 
 ];

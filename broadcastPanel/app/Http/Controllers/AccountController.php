@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use Request;
+use Sentry;
 
 /**
  * @author   Liam Symonds <liam@broadcastpanel.com>
@@ -20,7 +22,7 @@ class AccountController extends Controller
      **/
     public function getLogin() 
     {
-        return view('account.login');
+        return view( 'account.login' );
     }
     
     /**
@@ -31,7 +33,31 @@ class AccountController extends Controller
      **/
     public function postLogin() 
     {
-        
+        try
+        {
+            $credentials = array (
+
+                'email'     => Request::input('email'),
+                'password'  => Request::input('password')
+
+            );
+
+            $user = Sentry::authenticate($credentials, false);        
+        }
+        catch ( \Cartalyst\Sentry\Users\LoginRequiredException $e )
+        {
+            echo 'login required'; 
+        }
+        catch ( \Cartalyst\Sentry\Users\PasswordRequiredException $e )
+        {
+            echo 'password required';
+        }
+        catch ( \Exception $e )
+        {
+            // If we receive any other type of validation error we always want to
+            // return the same info to prevent account enumeration.
+            echo 'invalid credentials';
+        }
     }
 
 }

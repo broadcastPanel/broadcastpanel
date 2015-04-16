@@ -20,23 +20,23 @@
         <div class="loginFullWidth drop-20">
         
             <div class="container loginContainer">
-                <form>
+                {!! Form::open(array('url' => 'account/login')) !!}
                     <div>
                         <label for="email">
                             Email
                         </label>
-                        <input type="text" class="form-control" id="email" placeholder="your.email@provider.com" />
+                        {!! Form::text('email', '', array('placeholder' => 'your.email@provider.com', 'class' => 'form-control')) !!}
                     </div>
                     <div class="drop-20">
                         <label for="password">
                             Password
                         </label>
-                        <input type="password" class="form-control" id="password" placeholder="password" />
+                        {!! Form::password('password', array('placeholder' => 'password', 'class' => 'form-control')) !!}
                     </div>
                     <div class="drop-20">
                         <button class="btn loginButton">LOG IN</button>
                     </div>
-                </form>
+                {!! Form::close() !!}
             </div>
 
         </div> 

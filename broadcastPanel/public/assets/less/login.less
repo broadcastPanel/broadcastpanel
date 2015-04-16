@@ -1,0 +1,51 @@
+@charset 'utf-8';
+
+/**
+ * @author   Liam Symonds <liam@broadcastpanel.com>
+ * @version  1.0.0
+ * @modified 16/04/2015
+ *
+ * This file contains the stylings for the main login page. 
+ **/
+
+@import 'colours.less';
+
+body#login {
+    background: #FFF;
+    margin-top: 10%;
+}
+
+div.loginContainer {
+    max-width: 400px;
+    margin: auto;
+
+    img {
+        margin: auto;
+    }
+}
+
+div.centerImage {
+    text-align: center;
+}
+
+div.loginFullWidth {
+    background: #FAFAFA;
+    border: 1px solid #F1F1F1;
+    padding: 20px 0px;
+}
+
+button.loginButton {
+    border-radius: 0;
+    float: right;
+    background: @primaryButtonColour;
+    color: #FFF;
+
+    &:focus {
+        color: #FFF;
+    }
+}  
+
+footer.login {
+    text-align: center;
+    font-size: 11px;
+}

@@ -15,10 +15,12 @@
 
         <div class="container loginContainer centerImage">
             {!! Html::image('assets/imgs/logo.jpg', 'Logo', array('align' => 'middle')) !!}
+            
+            @include('shared.messages')
         </div>
 
         <div class="loginFullWidth drop-20">
-        
+
             <div class="container loginContainer">
                 {!! Form::open(array('url' => 'account/login')) !!}
                     <div>

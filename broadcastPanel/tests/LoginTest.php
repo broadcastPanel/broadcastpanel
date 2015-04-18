@@ -14,6 +14,19 @@ class LoginTest extends TestCase
 {
 
     /**
+     * Sets up the testing class and begins
+     * the session to use within the environment.
+     *
+     * @return void
+     **/
+    public function setUp()
+    {
+        parent::setUp();
+
+        Session::start();
+    }
+
+    /**
      * Ensure that the login page can be accessed and
      * that there is content on the page (i.e. a Login label).
      *
@@ -38,14 +51,19 @@ class LoginTest extends TestCase
      **/ 
     public function testCanLogTheUserIn()
     {
+        // Mocks Sentry and prevents it from throwing an exception of the new, fake user
+        // cannot be found. 
+        Sentry::shouldReceive('authenticate')->once();
+
         $credentials = [
             'email'    => 'test@test.com',
-            'password' => 'password'
+            'password' => 'password',
+            '_token'   => csrf_token()
         ];
 
-        $response = $this->call('POST', '/account/login', $credentials);        
+        $response = $this->call('POST', '/account/login', $credentials);
 
-//        $this->assertResponseOk();
+        $this->assertRedirectedTo('/dashboard/index');
     }
     
     /**
@@ -57,6 +75,17 @@ class LoginTest extends TestCase
      **/
     public function testCannotLoginWithInvalidUsernameOrPassword()
     {
+        Sentry::shouldReceive('authenticate')->once()->andThrow(new Cartalyst\Sentry\Users\WrongPasswordException);
+
+        $credentials = [
+            'email'    => 'test@test.com',
+            'password' => 'password',
+            '_token'   => csrf_token()
+        ];
+
+        $response = $this->call('POST', '/account/login', $credentials);  
+
+        $this->assertSessionHas('error', 'Invalid credentials.');
     }
 
     /**
@@ -70,5 +99,29 @@ class LoginTest extends TestCase
      **/
     public function testInvalidLoginDoesNotGiveAwayInformation()
     {
-    }  
+        $credentials = [
+            'email'    => 'test@test.com',
+            'password' => 'password',
+            '_token'   => csrf_token()
+        ];
+
+        $response = $this->call('POST', '/account/login', $credentials);  
+
+        $this->assertSessionHas('error', 'Invalid credentials.');
+    } 
+
+    /**
+     * Test that a user can get logged out and redirected to the correct page
+     * (login) if they choose to do so.
+     *
+     * @return void
+     **/
+    public function testCanLogOut()
+    {
+        Sentry::shouldReceive('logout')->once();
+
+        $response = $this->call('GET', '/account/logout');
+
+        $this->assertRedirectedTo('/account/login');
+    } 
 }

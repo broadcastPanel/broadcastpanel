@@ -2,6 +2,7 @@
 
 use Request;
 use Sentry;
+use Redirect;
 
 /**
  * @author   Liam Symonds <liam@broadcastpanel.com>
@@ -22,7 +23,7 @@ class AccountController extends Controller
      **/
     public function getLogin() 
     {
-        return view( 'account.login' );
+        return view('account.login');
     }
     
     /**
@@ -35,29 +36,53 @@ class AccountController extends Controller
     {
         try
         {
-            $credentials = array (
+            $credentials = [
 
                 'email'     => Request::input('email'),
                 'password'  => Request::input('password')
 
-            );
+            ];
 
-            $user = Sentry::authenticate( $credentials, false );        
+            $user = Sentry::authenticate($credentials, false);
+
+            return Redirect::to('/dashboard/index');
         }
-        catch ( \Cartalyst\Sentry\Users\LoginRequiredException $e )
+        catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
         {
-            echo 'login required'; 
+            return Redirect::back()->with([
+                'error' => 'You must enter an email address.',
+                'class' => 'drop-20'
+            ]);
         }
-        catch ( \Cartalyst\Sentry\Users\PasswordRequiredException $e )
+        catch (\Cartalyst\Sentry\Users\PasswordRequiredException $e)
         {
-            echo 'password required';
+            return Redirect::back()->with([
+                'error' => 'You must enter a password.',
+                'class' => 'drop-20'
+            ]);
         }
-        catch ( \Exception $e )
+        catch (\Exception $e)
         {
             // If we receive any other type of validation error we always want to
             // return the same info to prevent account enumeration.
-            echo 'invalid credentials';
+            return Redirect::back()->with([
+                'error' => 'Invalid credentials.',
+                'class' => 'drop-20'
+            ]);
         }
+    }
+
+    /**
+     * Logs the currently authenticated user out of the application and
+     * redirects them back to the login.
+     *
+     * @return redirect
+     **/
+    public function getLogout()
+    {
+        Sentry::logout();
+
+        return Redirect::to('/account/login');
     }
 
 }

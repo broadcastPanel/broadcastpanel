@@ -27,7 +27,7 @@ class SentryAuth {
                 return redirect('account/login');
             }
 
-            return $next($reqeust);
+            return $next($request);
 	}
 
 }

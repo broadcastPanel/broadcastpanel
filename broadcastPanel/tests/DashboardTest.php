@@ -13,6 +13,27 @@ class DashboardTest extends TestCase
 {
     
     /**
+     * Sets up the current user by registering them (activated)
+     * and then authenticating them for use within the service.
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        Sentry::register([
+            'email'     => 'test@tester.com',
+            'password'  => 'test'
+        ], true);
+
+        Sentry::authenticate([
+            'email'     => 'test@tester.com',
+            'password'  => 'test'
+        ]);
+    }
+
+    /**
      * Tests whether the dashboard view can
      * be retrieved or not and if the status
      * URL is status: OK.
@@ -24,6 +45,21 @@ class DashboardTest extends TestCase
         $this->call('GET', '/dashboard/index');
 
         $this->assertResponseOk();
+    }
+
+    /**
+     * Tears down this set of tests and deletes the user we
+     * are testing with to prevent any collisions in the future.
+     *
+     * @return void;
+     **/
+    public function tearDown()
+    {
+        $user = Sentry::findUserByLogin('test@tester.com');
+
+        $user->delete();
+
+        parent::tearDown();
     }
 
 } 

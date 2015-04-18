@@ -3,6 +3,7 @@
 use Request;
 use Sentry;
 use Redirect;
+use Cookie;
 
 /**
  * @author   Liam Symonds <liam@broadcastpanel.com>
@@ -45,7 +46,9 @@ class AccountController extends Controller
 
             $user = Sentry::authenticate($credentials, false);
 
-            return Redirect::to('/dashboard/index');
+            $cookie = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim ( $user->email ) ) );
+
+            return Redirect::to('/dashboard/index')->withCookie(cookie('gravatar', $cookie));
         }
         catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
         {
@@ -63,6 +66,7 @@ class AccountController extends Controller
         }
         catch (\Exception $e)
         {
+            return $e;
             // If we receive any other type of validation error we always want to
             // return the same info to prevent account enumeration.
             return Redirect::back()->with([

@@ -29,10 +29,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <img src="{{ Cookie::get('gravatar') }}" height="30" width="30" class="gravatar" />  <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu" role="menu">
                     <li>
                       <a href="{{ action('AccountController@getLogout') }}"><i class="glyphicon glyphicon-cog"></i> Settings</a>

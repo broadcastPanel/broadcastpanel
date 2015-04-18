@@ -99,6 +99,8 @@ class LoginTest extends TestCase
      **/
     public function testInvalidLoginDoesNotGiveAwayInformation()
     {
+        Sentry::shouldReceive('authenticate')->once()->andThrow(new Cartalyst\Sentry\Users\WrongPasswordException);
+
         $credentials = [
             'email'    => 'test@test.com',
             'password' => 'password',
@@ -118,10 +120,19 @@ class LoginTest extends TestCase
      **/
     public function testCanLogOut()
     {
-        Sentry::shouldReceive('logout')->once();
+        Sentry::shouldReceive('logout')->times(1);
 
         $response = $this->call('GET', '/account/logout');
 
         $this->assertRedirectedTo('/account/login');
     } 
+
+    /**
+     * Closes down these tests and ensures that mockery
+     * is fully closed and will run its assertions.
+     */
+    public function tearDown()
+    {
+        Mockery::close();
+    }
 }

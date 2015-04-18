@@ -55,6 +55,8 @@ class DashboardTest extends TestCase
      **/
     public function tearDown()
     {
+        Mockery::close();
+        
         $user = Sentry::findUserByLogin('test@tester.com');
 
         $user->delete();

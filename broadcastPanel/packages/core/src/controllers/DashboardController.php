@@ -1,4 +1,10 @@
-<?php namespace App\Http\Controllers;
+<?php namespace BroadcastPanel\Core\Controllers;
+
+use \App\Http\Controllers\Controller;
+use Request;
+use Sentry;
+use Redirect;
+use Cookie;
 
 /**
  * @author   Liam Symonds <liam@broadcastpanel.com>
@@ -20,7 +26,7 @@ class DashboardController extends Controller
      **/
     public function __construct()
     {
-        $this->middleware( 'sentryauth' );
+        $this->middleware('sentryauth');
     }
 
     /**
@@ -31,7 +37,7 @@ class DashboardController extends Controller
      **/
     public function getIndex()
     {
-        return view( 'dashboard.index' );
+        return view('core::dashboard');
     }
 
 }

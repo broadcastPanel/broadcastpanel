@@ -10,7 +10,7 @@ module.exports = function(grunt) {
                     sourceMap: false
                 },
                 files: {
-                    'public/assets/js/app.js' : ['public/assets/coffee/*.coffee']
+                    'public/assets/js/app.js' : ['public/**/*.coffee']
                 }
             },
 
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                     cleancss: true,
                 },
                 files: {
-                    'public/assets/css/style.css' : 'public/assets/less/app.less'
+                    'public/assets/css/style.css' : ['public/assets/less/app.less']
                 }
             }
 

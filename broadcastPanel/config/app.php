@@ -145,11 +145,21 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
                 
-                /*
-                 * External Service Providers...
-                 */
-                'Collective\Html\HtmlServiceProvider',
-                'Cartalyst\Sentry\SentryServiceProvider',
+        /*
+         * External Service Providers...
+         */
+        'Collective\Html\HtmlServiceProvider',
+        'Cartalyst\Sentry\SentryServiceProvider',
+
+        /*
+         * ------------------------------------------------
+         * broadcastPanel Plug-ins
+         * ------------------------------------------------
+         * Defined below are the active broadcastPanel
+         * plug-ins. They will be loaded and the routes will
+         * be enabled apon load of the application.
+         */
+        'BroadcastPanel\Core\CoreServiceProvider',
 	],
 
 	/*
@@ -197,9 +207,9 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-                'Form'      => 'Collective\Html\FormFacade',
-                'Html'      => 'Collective\Html\HtmlFacade',
-                'Sentry'    => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Form'      => 'Collective\Html\FormFacade',
+        'Html'      => 'Collective\Html\HtmlFacade',
+        'Sentry'    => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 	],
 
 ];

@@ -35,11 +35,11 @@
                   </a>
                   <ul class="dropdown-menu" role="menu">
                     <li>
-                      <a href="{{ action('AccountController@getLogout') }}"><i class="glyphicon glyphicon-cog"></i> Settings</a>
+                      <a href="#"><i class="glyphicon glyphicon-cog"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                      <a href="{{ action('AccountController@getLogout') }}"><i class="glyphicon glyphicon-user"></i> Logout</a>
+                      <a href="{{ action('\BroadcastPanel\Core\Controllers\AccountController@getLogout') }}"><i class="glyphicon glyphicon-user"></i> Logout</a>
                     </li>
                   </ul>
                 </li>
@@ -47,6 +47,32 @@
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12 navigation">
+                  @foreach (Config::get('broadcastpanel.navigationalPlugins') as $plugin)
+                    @foreach (App::make($plugin)->getNavigation() as $navigationHeader => $navigationArray)
+                      <div class="header">
+                        {{ $navigationHeader }} <i class="glyphicon glyphicon-plus pull-right"></i>
+                      </div>
+                      <div class="box">
+                        @foreach ($navigationArray['Links'] as $navigationText => $navigationUrl)
+                          - <a href="{{ action($navigationUrl) }}">{{ $navigationText }}</a> <br />
+                        @endforeach
+                      </div>
+                    @endforeach
+                  @endforeach
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              @yield('content')
+            </div>  
+          </div>
+        </div>
 
         <!-- Vendor Javascript files -->
         {!! Html::script('assets/components/jquery/dist/jquery.min.js') !!}

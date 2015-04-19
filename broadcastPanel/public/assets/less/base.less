@@ -14,6 +14,12 @@ body {
 	background: @pageBackgroundColour;
 }
 
+// Navigation styling
+.navbar {
+	background: #FFF;
+	clear: both;
+}
+
 .logo-small {
 	width: 150px;
 	height: 30px;
@@ -42,5 +48,25 @@ ul.navbar-nav {
 
 	&:hover {
 		background-color: #FFF !important;
+	}
+}
+
+.navigation {
+	.header {
+		background: @primaryBoxHeaderColour;
+		padding: 10px;
+		color: #FFF !important;
+		border: 1px solid #2F4052;
+
+		&:nth-child(2n) {
+			background: @secondaryBoxHeaderColour !important;
+		}
+	}
+
+	.box {
+		background: #FFF;
+		width: 100%;
+		padding: 10px;
+		border: 1px solid @primaryBoxBorderColour;
 	}
 }

@@ -1,5 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php namespace BroadcastPanel\Core\Controllers;
 
+use \App\Http\Controllers\Controller;
 use Request;
 use Sentry;
 use Redirect;
@@ -24,7 +25,7 @@ class AccountController extends Controller
      **/
     public function getLogin() 
     {
-        return view('account.login');
+        return view('core::login');
     }
     
     /**

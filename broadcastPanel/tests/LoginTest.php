@@ -52,7 +52,7 @@ class LoginTest extends TestCase
     public function testCanLogTheUserIn()
     {
         // Mocks Sentry and prevents it from throwing an exception of the new, fake user
-        // cannot be found. 
+        // cannot be found.
         Sentry::shouldReceive('authenticate')->once();
 
         $credentials = [
@@ -61,9 +61,14 @@ class LoginTest extends TestCase
             '_token'   => csrf_token()
         ];
 
+        $user = new Cartalyst\Sentry\Users\Eloquent\User();
+        $user->email = 'test@test.com';
+        $user->password = 'test'; 
+
+
         $response = $this->call('POST', '/account/login', $credentials);
 
-        $this->assertRedirectedTo('/dashboard/index');
+        $this->assertRedirectedTo('/');
     }
     
     /**

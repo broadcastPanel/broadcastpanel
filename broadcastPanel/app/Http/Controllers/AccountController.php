@@ -66,7 +66,6 @@ class AccountController extends Controller
         }
         catch (\Exception $e)
         {
-            return $e;
             // If we receive any other type of validation error we always want to
             // return the same info to prevent account enumeration.
             return Redirect::back()->with([

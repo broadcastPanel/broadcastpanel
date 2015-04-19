@@ -23,7 +23,7 @@ class DashboardTest extends TestCase
         parent::setUp();
 
         Sentry::register([
-            'email'     => 'test@tester.com.com',
+            'email'     => 'test@tester.com',
             'password'  => 'test'
         ], true);
 

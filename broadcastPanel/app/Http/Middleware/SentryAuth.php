@@ -24,7 +24,7 @@ class SentryAuth {
 	{
             if ( ! \Sentry::check() )
             {
-                return redirect('account/login');
+                return redirect('/account/login');
             }
 
             return $next($request);

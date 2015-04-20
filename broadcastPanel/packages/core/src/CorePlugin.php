@@ -21,6 +21,7 @@ class CorePlugin implements BasePluginContract
 				
 				'Links' => [
 					'Home' 		=> '\BroadcastPanel\Core\Controllers\DashboardController@getIndex',
+					'Settings'	=> '\BroadcastPanel\Core\Controllers\SettingsController@getIndex',
 					'Logout'	=> '\BroadcastPanel\Core\Controllers\AccountController@getLogout'	
 				],
 

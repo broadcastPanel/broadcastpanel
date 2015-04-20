@@ -26,9 +26,10 @@ class CoreServiceProvider extends ServiceProvider
 
 		// Publish the assets
 		$this->publishes([
-			__DIR__.'/../assets/js/'  => public_path('/assets/js'),
-			__DIR__.'/../assets/css'  => public_path('/assets/css'),
-			__DIR__.'/../assets/imgs' => public_path('/assets/imgs')
+			__DIR__.'/../assets/js/'   => public_path('/assets/js'),
+			__DIR__.'/../assets/css'   => public_path('/assets/css'),
+			__DIR__.'/../assets/imgs'  => public_path('/assets/imgs'),
+			__DIR__.'/../assets/fonts' => public_path('/assets/fonts')
 		]);
 
 		// Publish the migrations

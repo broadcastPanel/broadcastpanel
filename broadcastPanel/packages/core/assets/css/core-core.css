@@ -57,14 +57,17 @@ ul.navbar-nav {
 .navbar-nav > .open > a:hover {
   background-color: #FFF !important;
 }
+.navigation:not(:first-child) {
+  margin-top: 10px;
+}
+.navigation:not(:first-child) .box {
+  display: none;
+}
 .navigation .header {
   background: #354b60;
   padding: 10px;
   color: #FFF !important;
   border: 1px solid #2F4052;
-}
-.navigation .header:nth-child(2n) {
-  background: #34495e !important;
 }
 .navigation .box {
   background: #FFF;

@@ -55,16 +55,18 @@
           <div class="row">
             <div class="col-md-3">
               <div class="row">
-                <div class="col-md-12 navigation">
+                <div class="col-md-12">
                   @foreach (Config::get('broadcastpanel.navigationalPlugins') as $plugin)
                     @foreach (App::make($plugin)->getNavigation() as $navigationHeader => $navigationArray)
-                      <div class="header">
-                        {{ $navigationHeader }} <i class="glyphicon glyphicon-plus pull-right"></i>
-                      </div>
-                      <div class="box">
-                        @foreach ($navigationArray['Links'] as $navigationText => $navigationUrl)
-                          <a href="{{ action($navigationUrl) }}">{{ $navigationText }}</a> <br />
-                        @endforeach
+                      <div class="navigation">
+                        <div class="header">
+                          {{ $navigationHeader }}
+                        </div>
+                        <div class="box">
+                          @foreach ($navigationArray['Links'] as $navigationText => $navigationUrl)
+                            <a href="{{ action($navigationUrl) }}">{{ $navigationText }}</a> <br />
+                          @endforeach
+                        </div>
                       </div>
                     @endforeach
                   @endforeach

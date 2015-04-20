@@ -17,6 +17,7 @@ class CorePlugin implements BasePluginContract
 	{
 		return [
 
+			// The application headered navigation box.
 			'Application' => [
 				
 				'Links' => [
@@ -29,6 +30,19 @@ class CorePlugin implements BasePluginContract
 
 				]
 				
+			],
+
+			// The messaging headered navigation box.
+			'Messaging' => [
+
+				'Links' => [
+					'View Inbox' => '\BroadcastPanel\Core\Controllers\DashboardController@getIndex'
+				],
+
+				'Claim' => [
+
+				]
+
 			]
 		];
 	}

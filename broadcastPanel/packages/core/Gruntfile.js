@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         watch: {
     
             scripts: {
-                files: ['assets/coffee/*.coffee'],
+                files: ['assets/**/*.coffee'],
                 tasks: ['coffee', 'uglify']
             },
 

@@ -63,15 +63,19 @@ ul.navbar-nav {
 }
 
 .navigation {
+	&:not(:first-child) {
+		margin-top:10px;
+
+		.box {
+			display: none;
+		}
+	}
+
 	.header {
 		background: @primaryBoxHeaderColour;
 		padding: 10px;
 		color: #FFF !important;
 		border: 1px solid #2F4052;
-
-		&:nth-child(2n) {
-			background: @secondaryBoxHeaderColour !important;
-		}
 	}
 
 	.box {

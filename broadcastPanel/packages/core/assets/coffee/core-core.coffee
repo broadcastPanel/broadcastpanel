@@ -4,8 +4,9 @@
 # Handles the navigation of the application.
 
 $('.navigation > .header').on 'click', ->
-	console.log($(this).next())
 	next = $(this).next()
+	header = $(this)
+
 	if ! next.is(':visible')
 		$('.box').not(next).slideUp()
 		next.hide().slideDown()

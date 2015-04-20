@@ -1,8 +1,8 @@
 (function() {
   $('.navigation > .header').on('click', function() {
-    var next;
-    console.log($(this).next());
+    var header, next;
     next = $(this).next();
+    header = $(this);
     if (!next.is(':visible')) {
       $('.box').not(next).slideUp();
       return next.hide().slideDown();

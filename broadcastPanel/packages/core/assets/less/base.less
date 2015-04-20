@@ -14,16 +14,27 @@ body {
 	background: @pageBackgroundColour;
 }
 
+// Anchor styling
+a {
+	&, &:link, &:visited, &:active, &:focus {
+		 color: @primaryBoxHeaderColour;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 // Navigation styling
 .navbar {
 	background: #FFF;
 	clear: both;
-}
+} 
 
 .logo-small {
 	width: 150px;
 	height: 30px;
-	margin-top: 0px;
+	margin-top: 0px; 
 }
 
 .gravatar {

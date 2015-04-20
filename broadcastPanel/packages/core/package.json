@@ -1,7 +1,7 @@
 {
-  "name": "broadcastPanel",
+  "name": "broadcastPanel-core",
   "version": "1.0.0",
-  "description": "A free, open source radio broadcasting panel.",
+  "description": "The core functionality of broadcastPanel",
   "main": "public/index.php",
   "directories": {
     "test": "tests"
@@ -11,6 +11,10 @@
     "bower": "^1.4.1",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-cssmin": "^0.12.2",
+    "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-shell": "~1.1.2"
   },

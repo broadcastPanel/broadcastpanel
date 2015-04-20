@@ -9,7 +9,7 @@
         {!! Html::style('assets/components/bootstrap/dist/css/bootstrap.min.css') !!}        
 
         <!-- Application Stylesheets -->
-        {!! Html::style('assets/css/style.min.css') !!} 
+        {!! Html::style('assets/css/core-core.min.css') !!} 
     </head>
     <body id="login">
 

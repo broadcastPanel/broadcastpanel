@@ -4,7 +4,7 @@
  * @version  1.0.0
  * @modified 16/04/2015
  *
- * This file contains all of the import for the other parts of the application.
+ * This file contains the stylings for the main login page. 
  **/
 /**
  * @author   Liam Symonds <liam@broadcastpanel.com>
@@ -16,28 +16,18 @@
  * to style certain components and having them in a grouped
  * file makes it easier to change and modify them.
  **/
-/**
- * @author   Liam Symonds <liam@broadcastpanel.com>
- * @version  1.0.0
- * @modified 16/04/2015
- *
- * This file contains any positioning elements (drops, ups etc).
- **/
-.drop-10 {
-  margin-top: 10px !important;
-}
-.drop-20 {
-  margin-top: 20px !important;
-}
-/**
- * @author   Liam Symonds <liam@broadcastpanel.com>
- * @version  1.0.0
- * @modified 16/04/2015
- *
- * This file contains the stylings for the main login page. 
- **/
 body {
   background: #fafafa;
+}
+a,
+a:link,
+a:visited,
+a:active,
+a:focus {
+  color: #354b60;
+}
+a:hover {
+  text-decoration: underline;
 }
 .navbar {
   background: #FFF;
@@ -89,6 +79,18 @@ ul.navbar-nav {
  * @version  1.0.0
  * @modified 16/04/2015
  *
+ * This stylesheet contains all of the base application colours.
+ * broadcastPanel has a specific colour range it uses in order
+ * to style certain components and having them in a grouped
+ * file makes it easier to change and modify them.
+ **/
+
+@charset 'utf-8';
+/**
+ * @author   Liam Symonds <liam@broadcastpanel.com>
+ * @version  1.0.0
+ * @modified 16/04/2015
+ *
  * This file contains the stylings for the main login page. 
  **/
 /**
@@ -132,4 +134,19 @@ button.loginButton:focus {
 footer.login {
   text-align: center;
   font-size: 11px;
+}
+
+@charset 'utf-8';
+/**
+ * @author   Liam Symonds <liam@broadcastpanel.com>
+ * @version  1.0.0
+ * @modified 16/04/2015
+ *
+ * This file contains any positioning elements (drops, ups etc).
+ **/
+.drop-10 {
+  margin-top: 10px !important;
+}
+.drop-20 {
+  margin-top: 20px !important;
 }

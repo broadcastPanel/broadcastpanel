@@ -9,7 +9,10 @@
         {!! Html::style('assets/components/bootstrap/dist/css/bootstrap.min.css') !!}        
 
         <!-- Application Stylesheets -->
-        {!! Html::style('assets/css/style.min.css') !!} 
+        {!! Html::style('assets/css/core-core.min.css') !!} 
+
+        <!-- Individual plugin styles -->
+        @yield('styles')
     </head>
     <body>
     
@@ -60,7 +63,7 @@
                       </div>
                       <div class="box">
                         @foreach ($navigationArray['Links'] as $navigationText => $navigationUrl)
-                          - <a href="{{ action($navigationUrl) }}">{{ $navigationText }}</a> <br />
+                          <a href="{{ action($navigationUrl) }}">{{ $navigationText }}</a> <br />
                         @endforeach
                       </div>
                     @endforeach
@@ -79,7 +82,10 @@
         {!! Html::script('assets/components/bootstrap/dist/js/bootstrap.min.js') !!}
 
         <!-- Application Javascript files -->
-        {!! Html::script('assets/js/app.min.js') !!}
+        {!! Html::script('assets/js/core-core.min.js') !!}
+
+        <!-- Individual plugin files -->
+        @yield('scripts')
 
     </body>
 </html> 

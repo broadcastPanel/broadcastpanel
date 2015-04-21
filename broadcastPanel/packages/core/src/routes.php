@@ -9,7 +9,6 @@ Route::get(  '/',                 'BroadcastPanel\Core\Controllers\DashboardCont
 Route::get(  '/account/login',    'BroadcastPanel\Core\Controllers\AccountController@getLogin'   );
 Route::post( '/account/login',    'BroadcastPanel\Core\Controllers\AccountController@postLogin'  );
 Route::get(  '/account/logout',   'BroadcastPanel\Core\Controllers\AccountController@getLogout'  );
-
-Route::get(	 '/account/settings', 'BroadcastPanel\Core\Controllers\SettingsController@getIndex'  );
+Route::get(	 '/account/settings', 'BroadcastPanel\Core\Controllers\AccountController@getSettings'  );
 
 Route::get(  '/dashboard/index',  'BroadcastPanel\Core\Controllers\DashboardController@getIndex' );

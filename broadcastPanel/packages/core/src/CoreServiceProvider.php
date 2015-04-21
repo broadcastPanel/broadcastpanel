@@ -12,6 +12,7 @@ use \BroadcastPanel\Base;
  **/
 class CoreServiceProvider extends ServiceProvider
 {
+
 	/**
 	 * Loads all of the views and publishes the 
 	 * assets, when required, to their relevant
@@ -54,4 +55,5 @@ class CoreServiceProvider extends ServiceProvider
 			return new CorePlugin();
 		});
 	}
+	
 }

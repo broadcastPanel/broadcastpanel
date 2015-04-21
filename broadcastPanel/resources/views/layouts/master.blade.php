@@ -79,6 +79,12 @@
           </div>
         </div>
 
+        <div class="container">
+          <footer>
+            &copy; broadcastPanel
+          </footer>
+        </div>
+
         <!-- Vendor Javascript files -->
         {!! Html::script('assets/components/jquery/dist/jquery.min.js') !!}
         {!! Html::script('assets/components/bootstrap/dist/js/bootstrap.min.js') !!}

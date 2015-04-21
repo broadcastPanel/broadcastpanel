@@ -32,7 +32,9 @@
   
     <div class="row drop-20">
         <div class="col-md-12">
-        Content here
+            <div class="content">
+                <h1>Good Morning</h1>
+            </div>
         </div>
     </div>  
 @stop

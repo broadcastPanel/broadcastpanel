@@ -12,7 +12,7 @@
  **/
 class LoginTest extends TestCase 
 {
-
+    
     /**
      * Sets up the testing class and begins
      * the session to use within the environment.
@@ -140,4 +140,5 @@ class LoginTest extends TestCase
     {
         Mockery::close();
     }
+
 }

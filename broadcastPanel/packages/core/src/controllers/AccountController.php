@@ -27,6 +27,19 @@ class AccountController extends Controller
     {
         return view('core::login');
     }
+
+    /**
+     * Provides and returns the index view for
+     * the settings.
+     *
+     * @return view
+     **/
+    public function getSettings()
+    {
+        return view('core::settings')->with([
+            'email' => Sentry::getUser()->email
+        ]);  
+    }
     
     /**
      * Acceps the login from the user and attempts

@@ -75,6 +75,23 @@ ul.navbar-nav {
   padding: 10px;
   border: 1px solid #f1f1f1;
 }
+div.content {
+  background: #FFF;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #f1f1f1;
+}
+div.content h1 {
+  font-family: 'Montserrat';
+  margin: 0;
+}
+footer {
+  font-size: 11px;
+  padding-top: 10px;
+  border-top: 1px solid #EDEBEB;
+  margin-top: 20px;
+  text-align: center;
+}
 
 @charset 'utf-8';
 /**

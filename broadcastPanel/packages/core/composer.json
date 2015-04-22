@@ -3,12 +3,12 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Adam Engebretson",
-      "email": "adam@laravelcollective.com"
+      "name": "Liam Symonds",
+      "email": "liam@broadcastpanel.com"
     },
     {
-      "name": "Taylor Otwell",
-      "email": "taylorotwell@gmail.com"
+      "name": "Matthew Gall",
+      "email": "matthew@broadcastpanel.com"
     }
   ],
   "require": {

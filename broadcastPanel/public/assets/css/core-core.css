@@ -85,6 +85,18 @@ div.content h1 {
   font-family: 'Montserrat';
   margin: 0;
 }
+.clear {
+  clear: both;
+}
+button.button {
+  border-radius: 0;
+  float: right;
+  background: #2c3e50;
+  color: #FFF;
+}
+button.button:focus {
+  color: #FFF;
+}
 footer {
   font-size: 11px;
   padding-top: 10px;
@@ -237,18 +249,10 @@ div.loginFullWidth {
   border: 1px solid #F1F1F1;
   padding: 20px 0px;
 }
-button.loginButton {
-  border-radius: 0;
-  float: right;
-  background: #2c3e50;
-  color: #FFF;
-}
-button.loginButton:focus {
-  color: #FFF;
-}
 footer.login {
   text-align: center;
   font-size: 11px;
+  border-top: 0 !important;
 }
 
 @charset 'utf-8';

@@ -36,7 +36,7 @@
                         {!! Form::password('password', array('placeholder' => 'password', 'class' => 'form-control')) !!}
                     </div>
                     <div class="drop-20">
-                        <button class="btn loginButton">LOG IN</button>
+                        <button class="btn button">LOG IN</button>
                     </div>
                 {!! Form::close() !!}
             </div>

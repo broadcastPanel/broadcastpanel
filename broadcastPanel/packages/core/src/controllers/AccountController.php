@@ -1,6 +1,8 @@
 <?php namespace BroadcastPanel\Core\Controllers;
 
 use \App\Http\Controllers\Controller;
+use \BroadcastPanel\Core\Repositories\UserRepository;
+
 use Request;
 use Sentry;
 use Redirect;
@@ -16,6 +18,21 @@ use Cookie;
  **/
 class AccountController extends Controller 
 {
+
+    /**
+     * The dependency injected user repository.
+     **/
+    private $userRepository;
+
+    /**
+     * Handles the injection of dependencies into this controller.
+     *
+     * @param $userRepository the injected user repository
+     **/
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
     
     /**
      * Shows the login page to the user

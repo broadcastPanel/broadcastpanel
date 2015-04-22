@@ -1,7 +1,7 @@
 <?php namespace BroadcastPanel\Core;
 
 use \Illuminate\Support\ServiceProvider; 
-use \BroadcastPanel\Base;
+use \BroadcastPanel\Core\Repositories\UserRepository;
 
 /**
  * @author  Liam Symonds
@@ -34,12 +34,12 @@ class CoreServiceProvider extends ServiceProvider
 		]);
 
 		// Publish the migrations
-		$this->publishes([
-			__DIR__.'/../migrations' => $this->app->databasePath().'/migrations'
+        $this->publishes([
+        	__DIR__.'/../migrations' => $this->app->databasePath().'/migrations'
 		]);
 
 		// Include our routes
-		include __DIR__.'/routes.php';
+        include __DIR__.'/routes.php';
 	}
 
 	/**
@@ -54,6 +54,11 @@ class CoreServiceProvider extends ServiceProvider
 		{
 			return new CorePlugin();
 		});
+
+        $this->app->singleton('BroadcastPanel\Core\Repositories\UserRepository', function($app)
+        {
+            return new UserRepository();
+        });
 	}
-	
+
 }

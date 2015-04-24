@@ -58,17 +58,16 @@ class LoginTest extends TestCase
         $credentials = [
             'email'    => 'test@test.com',
             'password' => 'password',
-            '_token'   => csrf_token()
+            '_token'  => csrf_token()
         ];
 
         $user = new Cartalyst\Sentry\Users\Eloquent\User();
         $user->email = 'test@test.com';
         $user->password = 'test'; 
 
-
         $response = $this->call('POST', '/account/login', $credentials);
 
-        $this->assertRedirectedTo('/');
+        $this->assertRedirectedTo('/dashboard/index');
     }
     
     /**

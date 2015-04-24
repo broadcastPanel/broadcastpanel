@@ -20,16 +20,25 @@ class SettingsTest extends TestCase
 	public function setUp()
 	{
 		parent::setUp();
-		
-		Sentry::register([
-            'email'     => 'test@tester.com',
-            'password'  => 'test'
-        ], true);
+
+		Session::start();
+
+		try
+		{
+			Sentry::register([
+	            'email'     => 'test@tester.com',
+	            'password'  => 'test'
+	        ], true);
+		}
+		catch (\Exception $e)
+		{
+			// Crappy catch all.
+		}
 
         Sentry::authenticate([
             'email'     => 'test@tester.com',
             'password'  => 'test'
-        ]);
+        ]);		
 	}
 
 	/**
@@ -59,9 +68,40 @@ class SettingsTest extends TestCase
 		$this->assertViewHas('email', 'test@tester.com');
 	}
 
+	/**
+	 * Ensures that the user can change their email.
+	 *
+	 * @return void
+	 **/
+	public function testCanChangeEmail()
+	{
+		// Create the mocks
+		Sentry::shouldReceive('save')->once()->andReturn(true);
+
+		$updateCredentials = [
+			'email'           	=> 'test@tester.com',
+            '_token'  		 	=> csrf_token()
+		];
+
+		$this->call('POST', '/account/settings', $updateCredentials);
+
+		$this->assertRedirectedTo('/account/settings');
+		$this->assertSessionHas('success');
+	}
+
+	public function testCanChangePassword()
+	{
+
+	}
+
+	public function testInvalidConfirmPasswordFails()
+	{
+
+	}
+
 	/** 
 	 * Closes all of the mockery mocks, deletes the
-	 * user and calls the parent tearDown method.
+	 * user and calls the parent tearDown method.s
 	 * 
 	 * @return void
 	 **/

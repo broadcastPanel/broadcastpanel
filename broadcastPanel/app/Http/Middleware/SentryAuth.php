@@ -22,12 +22,12 @@ class SentryAuth {
 	 */
 	public function handle($request, Closure $next)
 	{
-            if ( ! \Sentry::check() )
-            {
-                return redirect('/account/login');
-            }
+        if ( ! \Sentry::check() )
+        {
+            return redirect('/account/login');
+        }
 
-            return $next($request);
+        return $next($request);
 	}
 
 }

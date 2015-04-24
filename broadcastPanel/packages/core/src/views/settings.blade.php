@@ -8,7 +8,24 @@
             <div class="content">
                 <h1>Your Settings</h1>
                 <p>Edit your settings for broadcastPanel here. Any changes you make (and save) will be instantly updated and your session will continue to use the new values chosen.</p>
+                @include('shared.messages')
                 {!! Form::open(['url' => '/account/settings', 'class' => 'form-horizontal drop-20']) !!}
+
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                        <div class="col-sm-7">
+                            {!! Form::text('firstName', $firstName, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                        <div class="col-sm-7">
+                            {!! Form::text('lastName', $lastName, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+
+                    <hr />
 
                     <div class="form-group">
                         <label for="email" class="col-sm-3 control-label">Email*</label>
@@ -27,16 +44,9 @@
                     <hr />
 
                     <div class="form-group">
-                        <label for="confirmPassword" class="col-sm-3 control-label">Current Password*</label>
-                        <div class="col-sm-7">
-                            {!! Form::password('confirmPassword', ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <div class="col-sm-7 col-sm-offset-3">
                             <button class="btn button pull-right">
-                                Save Settings
+                                SAVE
                             </button>
                         </div>
                     </div>
